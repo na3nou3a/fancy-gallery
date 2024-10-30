@@ -1,0 +1,207 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+.gallery {
+  width: 98%;
+  max-width: 96rem;
+  max-height: 90vh;
+  aspect-ratio: 16 / 9;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr) [3];
+  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr) [3];
+  grid-template-rows: repeat(3, 1fr);
+  background-color: #424242;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+.gallery > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+.gallery > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+}
+.gallery > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+.gallery > *:nth-child(4) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+}
+.gallery > *:nth-child(5) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+}
+.gallery > *:nth-child(6) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+}
+.gallery > *:nth-child(7) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+.gallery > *:nth-child(8) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+}
+.gallery > *:nth-child(9) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+}
+.main-img-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  -webkit-transition: opacity 1.5s linear;
+  -o-transition: opacity 1.5s linear;
+  transition: opacity 1.5s linear;
+}
+.main-img-box.active {
+  opacity: 1;
+}
+.img-box {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 1s linear;
+  -o-transition: all 1s linear;
+  transition: all 1s linear;
+}
+
+.img-box:nth-of-type(2),
+.img-box:nth-of-type(3),
+.img-box:nth-of-type(4),
+.img-box:nth-of-type(5),
+.img-box:nth-of-type(6),
+.img-box:nth-of-type(7) {
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.9);
+}
+.img-box:nth-of-type(3),
+.img-box:nth-of-type(6),
+.img-box:nth-of-type(9) {
+  border-left: 0.1rem solid rgba(255, 255, 255, 0.9);
+  border-right: 0.1rem solid rgba(255, 255, 255, 0.9);
+}
+.img-icon,
+.extand {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 35%;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.4rem 0.4rem 1rem;
+  -webkit-transition: opacity 0.25s linear;
+  -o-transition: opacity 0.25s linear;
+  transition: opacity 0.25s linear;
+}
+.img-icon {
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.extand {
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.8rem;
+  color: #fff;
+  text-transform: uppercase;
+  border: 0.1rem dashed #fff;
+  background: rgba(0, 0, 0, 0.25);
+}
+.img-box:hover .img-icon,
+.img-box:hover .extand {
+  opacity: 1;
+  visibility: visible;
+}
+.img-icon.child {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  z-index: 10;
+  cursor: auto;
+}
+/* ================== Responsiv media =================== */
+@media (min-width: 500px) {
+  .gallery {
+    width: 95%;
+  }
+  .img-icon,
+  .extand {
+    width: 25%;
+  }
+}
+
+@media (min-width: 650px) {
+  .extand {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 750px) {
+  .extand {
+    font-size: 1rem;
+  }
+  .gallery {
+    width: 90%;
+  }
+}

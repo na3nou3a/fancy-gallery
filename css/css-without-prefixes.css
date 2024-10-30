@@ -1,0 +1,139 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.gallery {
+  width: 98%;
+  max-width: 96rem;
+  max-height: 90vh;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  background-color: #424242;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+.main-img-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s linear;
+}
+.main-img-box.active {
+  opacity: 1;
+}
+.img-box {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  transition: all 1s linear;
+}
+
+.img-box:nth-of-type(2),
+.img-box:nth-of-type(3),
+.img-box:nth-of-type(4),
+.img-box:nth-of-type(5),
+.img-box:nth-of-type(6),
+.img-box:nth-of-type(7) {
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.9);
+}
+.img-box:nth-of-type(3),
+.img-box:nth-of-type(6),
+.img-box:nth-of-type(9) {
+  border-left: 0.1rem solid rgba(255, 255, 255, 0.9);
+  border-right: 0.1rem solid rgba(255, 255, 255, 0.9);
+}
+.img-icon,
+.extand {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  box-sizing: content-box;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.4rem 0.4rem 1rem;
+  transition: opacity 0.25s linear;
+}
+.img-icon {
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+  cursor: grab;
+}
+.extand {
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 0.8rem;
+  color: #fff;
+  text-transform: uppercase;
+  border: 0.1rem dashed #fff;
+  background: rgba(0, 0, 0, 0.25);
+}
+.img-box:hover .img-icon,
+.img-box:hover .extand {
+  opacity: 1;
+  visibility: visible;
+}
+.img-icon.child {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  z-index: 10;
+  cursor: auto;
+}
+/* ================== Responsiv media =================== */
+@media (min-width: 500px) {
+  .gallery {
+    width: 95%;
+  }
+  .img-icon,
+  .extand {
+    width: 25%;
+  }
+}
+
+@media (min-width: 650px) {
+  .extand {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 750px) {
+  .extand {
+    font-size: 1rem;
+  }
+  .gallery {
+    width: 90%;
+  }
+}
